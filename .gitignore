@@ -2,3 +2,6 @@ env
 __pycache__
 migrations
 db.sqlite3
+.env
+.dev-sample
+celerybeat-schedule
