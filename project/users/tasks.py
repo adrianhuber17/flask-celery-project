@@ -6,7 +6,7 @@ from celery import shared_task
 from celery.utils.log import get_task_logger
 
 logger = get_task_logger(__name__)
-# from celery.signals import task_postrun
+from celery.signals import task_postrun
 
 
 @shared_task
@@ -34,7 +34,7 @@ def task_process_notification(self):
         logger.error('exception raised, it would be retry after 5 seconds')
         raise self.retry(exc=e, countdown=5)
 
-# @task_postrun.connect
-# def task_postrun_handler(task_id, **kwargs):
-#     from project.users.events import update_celery_task_status
-#     update_celery_task_status(task_id)
+@task_postrun.connect
+def task_postrun_handler(task_id, **kwargs):
+    from project.users.events import update_celery_task_status
+    update_celery_task_status(task_id)
