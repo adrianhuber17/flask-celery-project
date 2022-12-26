@@ -8,3 +8,5 @@ Flask-CeleryExt==0.3.4
 psycopg2-binary==2.9.1
 watchgod==0.7
 flask-socketio==5.0.1
+Flask-WTF==0.15.1
+requests==2.26.0
