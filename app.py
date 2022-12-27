@@ -1,4 +1,6 @@
 from project import create_app,ext_celery,socketio
+import eventlet
+eventlet.monkey_patch()
 
 app = create_app()
 celery = ext_celery.celery
@@ -7,18 +9,6 @@ celery = ext_celery.celery
 def hello_world():
     return "Hello, World!"
 
-@app.cli.command("celery_worker")
-def celery_worker():
-    """reload workers for celery"""
-    from watchgod import run_process
-    import subprocess
-
-    def run_worker():
-        subprocess.call(
-            ["celery", "-A", "app.celery", "worker", "--loglevel=info"]
-        )
-
-    run_process("./project", run_worker)
 
 if __name__ == "__main__":
     socketio.run(
@@ -26,5 +16,5 @@ if __name__ == "__main__":
         debug=True,
         use_reloader=True,
         host='0.0.0.0',
-        allow_unsafe_werkzeug=True
+        # allow_unsafe_werkzeug=True
         )
