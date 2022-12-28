@@ -18,6 +18,13 @@ class BaseConfig:
         'redis://127.0.0.1:6379/0'
     )
 
+    CELERY_BEAT_SCHEDULE = {
+        'task-schedule-work': {
+            'task': 'task_schedule_work',
+            "schedule": 10,  # five seconds
+        },
+    }
+
 class DevelopmentConfig(BaseConfig):
     """Development configuration"""
     DEBUG = True
