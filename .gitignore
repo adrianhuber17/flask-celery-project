@@ -6,3 +6,6 @@ db.sqlite3
 .dev-sample
 celerybeat-schedule
 celery.log
+.coverage
+.coveragerc
+htmlcov
