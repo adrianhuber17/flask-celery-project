@@ -9,3 +9,4 @@ celery.log
 .coverage
 .coveragerc
 htmlcov
+upload

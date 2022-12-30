@@ -17,3 +17,4 @@ werkzeug==2.0.3
 factory-boy==3.2.0
 pytest-factoryboy==2.1.0
 pytest-cov==2.12.1
+Pillow==9.3.0
