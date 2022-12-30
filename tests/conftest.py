@@ -1,9 +1,11 @@
 import pytest
 from pytest_factoryboy import register
 from project import create_app, db as _db
+from project.tdd.factories import MemberFactory 
 from project.users.factories import UserFactory
 
 register(UserFactory)
+register(MemberFactory)   
 
 @pytest.fixture
 def app():
@@ -24,3 +26,7 @@ def db(app):
 
         _db.session.remove()
         _db.drop_all()
+
+@pytest.fixture(scope="function", autouse=True)
+def tmp_upload_dir(tmpdir, config):
+    config.update(UPLOADS_DEFAULT_DEST=tmpdir.mkdir("tmp"))
