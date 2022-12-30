@@ -44,6 +44,8 @@ class BaseConfig:
     )
 
     CELERY_TASK_ROUTES = (route_task,)
+    
+    UPLOADS_DEFAULT_DEST = str(BASE_DIR / 'upload')
 
 class DevelopmentConfig(BaseConfig):
     """Development configuration"""
