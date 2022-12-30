@@ -10,3 +10,4 @@ celery.log
 .coveragerc
 htmlcov
 upload
+secret.sh
