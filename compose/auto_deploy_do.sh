@@ -10,7 +10,7 @@ then
 fi
 
 # generate TAR file from git
-git archive --format tar --output ./project.tar master
+git archive --format tar --output ./project.tar main
 
 echo 'Uploading project...'
 rsync ./project.tar root@143.198.49.171:/tmp/project.tar
