@@ -2,7 +2,7 @@ env
 __pycache__
 migrations
 db.sqlite3
-.env
+# .env
 .dev-sample
 celerybeat-schedule
 celery.log
